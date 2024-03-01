@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+{% from 'bootstrap4/form.html' import render_field %}
+
+{% block content %}
+    <h1>Add Concert</h1>
+
+    <form action="{{ url_for('auth.add_concert') }}" method="POST" enctype="multipart/form-data">
+        {{ render_field(form.poster) }}
+        {{ render_field(form.description) }}
+        {{ render_field(form.date) }}
+        {{ render_field(form.ticket_price) }}
+        {{ render_field(form.location) }}
+        {{ render_field(form.submit) }}
+    </form>
+{% endblock %}

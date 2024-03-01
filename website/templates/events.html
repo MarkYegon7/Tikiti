@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% block content %}
+    <h1>SeatGeek Event Information</h1>
+
+    <h2>{{ event_info.title }}</h2>
+    <p>Event Date: {{ event_info.datetime_local }}</p>
+    
+    {% if 'venue' in event_info %}
+        <p>Location: {{ event_info.venue.name }}, {{ event_info.venue.city }}, {{ event_info.venue.state }}</p>
+    {% endif %}
+    
+    {% if 'stats' in event_info %}
+        <p>Listing Count: {{ event_info.stats.listing_count }}</p>
+        <p>Average Price: ${{ event_info.stats.average_price }}</p>
+        <!-- Add more details as needed -->
+    {% endif %}
+
+    <a href="{{ event_info.url }}" target="_blank">More Info</a>
+{% endblock %}
+
